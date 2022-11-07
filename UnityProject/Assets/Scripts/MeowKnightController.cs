@@ -11,11 +11,13 @@ public class MeowKnightController : MonoBehaviour
     public int statement;
     string[] controls;
     [SerializeField] Body body;
+    Animator playerAnimator;
     // Start is called before the first frame update
     void Start()
     {
         PlayerPrefs.SetInt("Player1", 1);
         rb = GetComponent<Rigidbody2D>();
+        playerAnimator = GetComponent<Animator>();
         controls = new string[4];
         if(PlayerPrefs.GetInt("Player1")==1)
         {
@@ -44,6 +46,7 @@ public class MeowKnightController : MonoBehaviour
     void Update()
     {
         Movement();
+        Animations();
     }
     void Movement()
     {
@@ -59,5 +62,18 @@ public class MeowKnightController : MonoBehaviour
             transform.localScale = new Vector3(1, 1, 1);
         else if(Horizontal <0)
             transform.localScale = new Vector3(-1, 1, 1);
+    }
+    void Animations()
+    {
+        if (Horizontal != 0 && gnd.isGrounded)
+            playerAnimator.Play("Run");
+        else if (!gnd.isGrounded)
+            playerAnimator.Play("Jump");
+        else if (Horizontal == 0 && gnd.isGrounded)
+            playerAnimator.Play("Idle");
+    }
+    void Attack()
+    {
+
     }
 }
