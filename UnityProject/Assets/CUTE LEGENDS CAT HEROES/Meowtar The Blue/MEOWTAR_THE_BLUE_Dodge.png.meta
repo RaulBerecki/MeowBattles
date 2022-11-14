@@ -33,7 +33,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -42,12 +42,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 17
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -70,7 +70,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -115,7 +115,217 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: MEOWTAR_THE_BLUE_Dodge_0
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 451
+        width: 63
+        height: 38
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1577785ed7ddb74409ea22003fcbd6ca
+      internalID: 562901699
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MEOWTAR_THE_BLUE_Dodge_1
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 409
+        width: 63
+        height: 38
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8b15aecf59d34834189ff68b13eeb2b2
+      internalID: -542646151
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MEOWTAR_THE_BLUE_Dodge_2
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 368
+        width: 63
+        height: 38
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0e814fd238bd19d448521e1afd8b650f
+      internalID: 798305528
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MEOWTAR_THE_BLUE_Dodge_3
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 327
+        width: 63
+        height: 38
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae076edcc2d4e4745ada8ff52d44e57c
+      internalID: -1275861275
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MEOWTAR_THE_BLUE_Dodge_4
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 282
+        width: 63
+        height: 38
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bbdb7370dda8b314d87d8c6caa546ee3
+      internalID: 1925081569
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MEOWTAR_THE_BLUE_Dodge_5
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 239
+        width: 63
+        height: 38
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 478869a48882b634d923b3f9c8ed696e
+      internalID: -262396319
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MEOWTAR_THE_BLUE_Dodge_6
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 205
+        width: 63
+        height: 38
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1e01a3a0273f19c4e927fa5ba5ad3feb
+      internalID: -1063401101
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MEOWTAR_THE_BLUE_Dodge_7
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 148
+        width: 63
+        height: 38
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1dd65545769b2b949bc8e6ead16759e9
+      internalID: -1002023278
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MEOWTAR_THE_BLUE_Dodge_8
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 70
+        width: 63
+        height: 38
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f23d960c7cfe9044dbd99555c6fb5a3c
+      internalID: 1592249
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MEOWTAR_THE_BLUE_Dodge_9
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 34
+        width: 63
+        height: 38
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c8f5288d2ce2bed4fafc04876914d451
+      internalID: 517049091
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -126,7 +336,17 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      MEOWTAR_THE_BLUE_Dodge_7: -1002023278
+      MEOWTAR_THE_BLUE_Dodge_2: 798305528
+      MEOWTAR_THE_BLUE_Dodge_5: -262396319
+      MEOWTAR_THE_BLUE_Dodge_6: -1063401101
+      MEOWTAR_THE_BLUE_Dodge_1: -542646151
+      MEOWTAR_THE_BLUE_Dodge_4: 1925081569
+      MEOWTAR_THE_BLUE_Dodge_8: 1592249
+      MEOWTAR_THE_BLUE_Dodge_3: -1275861275
+      MEOWTAR_THE_BLUE_Dodge_9: 517049091
+      MEOWTAR_THE_BLUE_Dodge_0: 562901699
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

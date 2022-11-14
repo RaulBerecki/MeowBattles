@@ -7,14 +7,17 @@ public class MeowKnightController : MonoBehaviour
     [SerializeField] Ground gnd;
     public Rigidbody2D rb;
     public float jumpForce, speed;
-    float Horizontal,realspeed;
+    float Horizontal,realspeed,dodgeCooldown;
     public int statement;
     string[] controls;
     [SerializeField] Body body;
     Animator playerAnimator;
+    public bool isDodging;
     // Start is called before the first frame update
     void Start()
     {
+        dodgeCooldown = .8f;
+        isDodging = false;
         PlayerPrefs.SetInt("Player1", 1);
         rb = GetComponent<Rigidbody2D>();
         playerAnimator = GetComponent<Animator>();
@@ -50,27 +53,47 @@ public class MeowKnightController : MonoBehaviour
     }
     void Movement()
     {
-        Horizontal = Input.GetAxisRaw(controls[0]);
+
+        float way = transform.localScale.x;
+        if(!isDodging)
+            Horizontal = Input.GetAxisRaw(controls[0]);
         rb.velocity = new Vector2(Horizontal * speed, rb.velocity.y);
         if (gnd.isGrounded)
             speed = realspeed;
         else if (!gnd.isGrounded)
             speed = realspeed *.75f;
-        if (gnd.isGrounded && Input.GetButtonDown(controls[1]))
+        if (gnd.isGrounded && Input.GetButtonDown(controls[1]) &&!isDodging)
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
         if (Horizontal > 0)
             transform.localScale = new Vector3(1, 1, 1);
         else if(Horizontal <0)
             transform.localScale = new Vector3(-1, 1, 1);
+        if (!isDodging && Input.GetButtonDown(controls[2]) && gnd.isGrounded)
+        {
+            isDodging = true;
+        }
+        if (isDodging)
+        {
+            rb.velocity = new Vector2(way * speed * 1.3f, rb.velocity.y);
+            dodgeCooldown -= Time.deltaTime;
+        }
+            
+        if (dodgeCooldown <= 0)   
+        {
+            isDodging = false;
+            dodgeCooldown = 0.8f;
+        }
     }
     void Animations()
     {
-        if (Horizontal != 0 && gnd.isGrounded)
+        if (Horizontal != 0 && gnd.isGrounded && !isDodging)
             playerAnimator.Play("Run");
-        else if (!gnd.isGrounded)
+        else if (!gnd.isGrounded && !isDodging)
             playerAnimator.Play("Jump");
         else if (Horizontal == 0 && gnd.isGrounded)
             playerAnimator.Play("Idle");
+        else if (isDodging)
+            playerAnimator.Play("Dodge");
     }
     void Attack()
     {
