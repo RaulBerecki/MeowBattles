@@ -384,6 +384,7 @@
 "Assets/Scripts/MeowolasController.cs"
 "Assets/Scripts/MeowtarController.cs"
 "Assets/Scripts/MeowthurController.cs"
+"Assets/Scripts/SelectMenu.cs"
 -langversion:9.0
 
 /deterministic

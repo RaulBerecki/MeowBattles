@@ -141,9 +141,9 @@ TextureImporter:
       name: MEOWTAR_THE_BLUE_Idle_1
       rect:
         serializedVersion: 2
-        x: 5
+        x: 0
         y: 104
-        width: 17
+        width: 32
         height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -162,9 +162,9 @@ TextureImporter:
       name: MEOWTAR_THE_BLUE_Idle_2
       rect:
         serializedVersion: 2
-        x: 2
+        x: 0
         y: 78
-        width: 20
+        width: 32
         height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
