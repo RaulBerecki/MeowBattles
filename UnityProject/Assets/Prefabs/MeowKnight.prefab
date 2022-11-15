@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5518531034237411320}
   - component: {fileID: 5518531034237411323}
   - component: {fileID: 5518531034237411322}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: GroundChecker
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -81,7 +81,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5518531034664027748}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Colliders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -118,7 +118,7 @@ GameObject:
   - component: {fileID: 5518531035117281616}
   - component: {fileID: 5518531035117281619}
   - component: {fileID: 5518531035117281618}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: MeowKnight
   m_TagString: Untagged
   m_Icon: {fileID: 0}

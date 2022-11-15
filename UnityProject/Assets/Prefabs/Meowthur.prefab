@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8750811029561286824}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Colliders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -118,7 +118,7 @@ GameObject:
   - component: {fileID: 8750811030552971164}
   - component: {fileID: 8750811030552971166}
   - component: {fileID: 3883478333482135898}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Meowthur
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -264,7 +264,7 @@ GameObject:
   - component: {fileID: 8750811031334091060}
   - component: {fileID: 8750811031334091063}
   - component: {fileID: 8750811031334091062}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: GroundChecker
   m_TagString: Untagged
   m_Icon: {fileID: 0}

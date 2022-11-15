@@ -85,7 +85,7 @@ GameObject:
   - component: {fileID: 2893401914517600109}
   - component: {fileID: 2893401914517600111}
   - component: {fileID: 7256054410578761258}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Meowtar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -229,7 +229,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2893401914706071641}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Colliders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -264,7 +264,7 @@ GameObject:
   - component: {fileID: 2893401915349223877}
   - component: {fileID: 2893401915349223878}
   - component: {fileID: 2893401915349223879}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: GroundChecker
   m_TagString: Untagged
   m_Icon: {fileID: 0}

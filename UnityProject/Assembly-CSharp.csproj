@@ -57,12 +57,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\MeowthurController.cs" />
+    <Compile Include="Assets\Scripts\gameController.cs" />
     <Compile Include="Assets\Scripts\MeowolasController.cs" />
     <Compile Include="Assets\Scripts\Body.cs" />
     <Compile Include="Assets\Scripts\MeowtarController.cs" />
+    <Compile Include="Assets\Scripts\SelectMenu.cs" />
     <Compile Include="Assets\Scripts\MeowKnightController.cs" />
     <Compile Include="Assets\Scripts\Ground.cs" />
-    <Compile Include="Assets\Scripts\SelectMenu.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

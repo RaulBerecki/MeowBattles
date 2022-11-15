@@ -379,6 +379,7 @@
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEditor.UI.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEngine.UI.ref.dll"
 "Assets/Scripts/Body.cs"
+"Assets/Scripts/gameController.cs"
 "Assets/Scripts/Ground.cs"
 "Assets/Scripts/MeowKnightController.cs"
 "Assets/Scripts/MeowolasController.cs"

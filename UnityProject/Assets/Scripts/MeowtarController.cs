@@ -18,11 +18,10 @@ public class MeowtarController : MonoBehaviour
     {
         dodgeCooldown = 1f;
         isDodging = false;
-        PlayerPrefs.SetInt("Player1", 1);
         rb = GetComponent<Rigidbody2D>();
         playerAnimator = GetComponent<Animator>();
         controls = new string[4];
-        if (PlayerPrefs.GetInt("Player1") == 1)
+        if (PlayerPrefs.GetInt("Player1") == 2)
         {
             controls[0] = "Horizontal1";
             controls[1] = "Jump1";
@@ -32,7 +31,7 @@ public class MeowtarController : MonoBehaviour
             PlayerPrefs.SetInt("Player1", 0);
             body.player = "Player1";
         }
-        if (PlayerPrefs.GetInt("Player2") == 1)
+        if (PlayerPrefs.GetInt("Player2") == 2)
         {
             controls[0] = "Horizontal2";
             controls[1] = "Jump2";

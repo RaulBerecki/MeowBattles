@@ -18,7 +18,6 @@ public class MeowKnightController : MonoBehaviour
     {
         dodgeCooldown = .8f;
         isDodging = false;
-        PlayerPrefs.SetInt("Player1", 1);
         rb = GetComponent<Rigidbody2D>();
         playerAnimator = GetComponent<Animator>();
         controls = new string[4];
