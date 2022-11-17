@@ -118,6 +118,7 @@ GameObject:
   - component: {fileID: 8750811030552971164}
   - component: {fileID: 8750811030552971166}
   - component: {fileID: 3883478333482135898}
+  - component: {fileID: 8304282900868698720}
   m_Layer: 6
   m_Name: Meowthur
   m_TagString: Untagged
@@ -182,7 +183,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -157759869, guid: f773fa84c916f3942b75e23c92f7d639, type: 3}
+  m_Sprite: {fileID: -164219626, guid: d90c6d9f275627c489e68cbb76a78bb9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -253,6 +254,20 @@ MonoBehaviour:
   statement: 0
   body: {fileID: 8750811030182305416}
   isDodging: 0
+--- !u!114 &8304282900868698720
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8750811030552971155}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7096030a6ca7558468fe968a98ea0cbe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isDamaged: 0
+  health: 0
 --- !u!1 &8750811031334091061
 GameObject:
   m_ObjectHideFlags: 0

@@ -13,9 +13,13 @@ public class MeowtarController : MonoBehaviour
     [SerializeField] Body body;
     Animator playerAnimator;
     public bool isDodging;
+    //Attack variables
+    gameController GM;
+    Health enemyHealth, health;
     // Start is called before the first frame update
     void Start()
     {
+        GM = GameObject.Find("GameManager").GetComponent<gameController>();
         dodgeCooldown = 1f;
         isDodging = false;
         rb = GetComponent<Rigidbody2D>();
@@ -30,6 +34,7 @@ public class MeowtarController : MonoBehaviour
             statement = 1;
             PlayerPrefs.SetInt("Player1", 0);
             body.player = "Player1";
+            enemyHealth = GM.players[1].GetComponent<Health>();
         }
         if (PlayerPrefs.GetInt("Player2") == 2)
         {
@@ -40,8 +45,10 @@ public class MeowtarController : MonoBehaviour
             statement = 2;
             PlayerPrefs.SetInt("Player2", 0);
             body.player = "Player2";
+            enemyHealth = GM.players[0].GetComponent<Health>();
         }
         realspeed = speed;
+        health = GetComponent<Health>();
     }
 
     // Update is called once per frame
@@ -52,7 +59,6 @@ public class MeowtarController : MonoBehaviour
     }
     void Movement()
     {
-        Debug.Log(Horizontal);
         float way = transform.localScale.x;
         if (!isDodging)
             Horizontal = Input.GetAxisRaw(controls[0]);

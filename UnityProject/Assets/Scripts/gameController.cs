@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class gameController : MonoBehaviour
 {
-    [SerializeField] GameObject[] characters,players;
+    public GameObject[] characters,players;
     [SerializeField] Transform spawn1, spawn2;
     // Start is called before the first frame update
     void Start()

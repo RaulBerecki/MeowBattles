@@ -7,15 +7,23 @@ public class MeowthurController : MonoBehaviour
     [SerializeField] Ground gnd;
     public Rigidbody2D rb;
     public float jumpForce, speed;
-    float Horizontal, realspeed, dodgeCooldown;
+    float Horizontal, realspeed, dodgeCooldown,damageCooldown,attackCooldown,way;
     public int statement;
     string[] controls;
     [SerializeField] Body body;
     Animator playerAnimator;
     public bool isDodging;
+    //Attack variables
+    gameController GM;
+    Health enemyHealth, health;
+    bool isAttacking;
+    GameObject enemy;
     // Start is called before the first frame update
     void Start()
     {
+        attackCooldown = .5f;
+        damageCooldown = .2f;
+        GM = GameObject.Find("GameManager").GetComponent<gameController>();
         dodgeCooldown = 1f;
         isDodging = false;
         rb = GetComponent<Rigidbody2D>();
@@ -30,8 +38,10 @@ public class MeowthurController : MonoBehaviour
             statement = 1;
             PlayerPrefs.SetInt("Player1", 0);
             body.player = "Player1";
+            enemyHealth = GM.players[1].GetComponent<Health>();
+            enemy = GM.players[1];
         }
-        if (PlayerPrefs.GetInt("Player2") == 3)
+        else if (PlayerPrefs.GetInt("Player2") == 3)
         {
             controls[0] = "Horizontal2";
             controls[1] = "Jump2";
@@ -40,19 +50,24 @@ public class MeowthurController : MonoBehaviour
             statement = 2;
             PlayerPrefs.SetInt("Player2", 0);
             body.player = "Player2";
+            enemyHealth = GM.players[0].GetComponent<Health>();
+            enemy = GM.players[0];
         }
         realspeed = speed;
+        health = GetComponent<Health>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        HealthLook();
+        Attack();
         Movement();
         Animations();
     }
     void Movement()
     {
-        float way = transform.localScale.x;
+        way = transform.localScale.x;
         Horizontal = Input.GetAxisRaw(controls[0]);
         rb.velocity = new Vector2(Horizontal * speed, rb.velocity.y);
         if (gnd.isGrounded)
@@ -68,15 +83,50 @@ public class MeowthurController : MonoBehaviour
     }
     void Animations()
     {
-        if (Horizontal != 0 && gnd.isGrounded && !isDodging)
+        if (Horizontal != 0 && gnd.isGrounded && !isDodging && !isAttacking && !health.isDamaged)
             playerAnimator.Play("Run");
-        else if (!gnd.isGrounded && !isDodging)
+        else if (!gnd.isGrounded && !isDodging && !isAttacking && !health.isDamaged)
             playerAnimator.Play("Jump");
-        else if (Horizontal == 0 && gnd.isGrounded)
+        else if (Horizontal == 0 && gnd.isGrounded &&!isAttacking && !health.isDamaged)
             playerAnimator.Play("Idle");
+        else if (isAttacking && !health.isDamaged)
+            playerAnimator.Play("Attack");
+        else if (health.isDamaged)
+            playerAnimator.Play("TakeDamage");
+    }
+    void HealthLook()
+    {
+        if (health.isDamaged)
+        {
+            damageCooldown -= Time.deltaTime;
+        }
+        if (damageCooldown <= 0)
+        {
+            health.isDamaged = false;
+            damageCooldown = .2f;
+        }
     }
     void Attack()
     {
+        if (isAttacking)
+        {
+            attackCooldown -= Time.deltaTime;
+            Horizontal = 0;
+        }
 
+        if (attackCooldown <= 0)
+        {
+            isAttacking = false;
+            attackCooldown = .3f;
+        }
+        if (Input.GetButtonDown(controls[3]) && isAttacking == false && gnd.isGrounded)
+        {
+            isAttacking = true;
+            if (((way > 0 && enemy.transform.position.x - transform.position.x <= 1.5f && enemy.transform.position.x - transform.position.x > 0f) || (way < 0 && enemy.transform.position.x - transform.position.x >= -1.5f && enemy.transform.position.x - transform.position.x < 0f)) && enemy.transform.position.y - transform.position.y <= .5f)
+            {
+                enemyHealth.health -= Random.RandomRange(10, 25);
+                enemyHealth.isDamaged = true;
+            }
+        }
     }
 }

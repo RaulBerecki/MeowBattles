@@ -10,7 +10,7 @@ public class SelectMenu : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        timer = 15;
+        timer = 5;
         ply1 = ply2 = 1;
         menu1[0].SetActive(true);
         menu2[0].SetActive(true);
