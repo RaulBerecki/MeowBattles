@@ -2,7 +2,9 @@ ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
     - Body
+    - CameraController
     - Ground
+    - Health
     - MeowKnightController
     - MeowolasController
     - MeowtarController
@@ -13,6 +15,7 @@ ScriptsOnlyBuild:
     - UnityEditor.U2D.Animation.BoneGizmo
     Unity.2D.IK.Editor.dll:
     - UnityEditor.U2D.IK.IKEditorManager
+    - UnityEditor.U2D.IK.IKGizmos
     Unity.2D.Tilemap.Editor.dll:
     - UnityEditor.Tilemaps.GridBrush
     - UnityEditor.Tilemaps.GridPaintingState
@@ -39,8 +42,10 @@ ScriptsOnlyBuild:
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
@@ -109,17 +114,21 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 1688}
     - Class: 114
-      Script: {instanceID: 2502}
+      Script: {instanceID: 2446}
     - Class: 114
-      Script: {instanceID: 2548}
+      Script: {instanceID: 2504}
     - Class: 114
-      Script: {instanceID: 4094}
+      Script: {instanceID: 2550}
     - Class: 114
-      Script: {instanceID: 4596}
+      Script: {instanceID: 2792}
     - Class: 114
-      Script: {instanceID: 8800}
+      Script: {instanceID: 4098}
     - Class: 114
-      Script: {instanceID: 9492}
+      Script: {instanceID: 4600}
+    - Class: 114
+      Script: {instanceID: 8804}
+    - Class: 114
+      Script: {instanceID: 9496}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 157
@@ -160,23 +169,23 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 2346}
     - Class: 114
-      Script: {instanceID: 2858}
+      Script: {instanceID: 2862}
     - Class: 114
-      Script: {instanceID: 3118}
+      Script: {instanceID: 3122}
     - Class: 114
-      Script: {instanceID: 4762}
+      Script: {instanceID: 4766}
     - Class: 114
-      Script: {instanceID: 5096}
+      Script: {instanceID: 5100}
     - Class: 114
-      Script: {instanceID: 5606}
+      Script: {instanceID: 5610}
     - Class: 114
-      Script: {instanceID: 6012}
+      Script: {instanceID: 6016}
     - Class: 114
-      Script: {instanceID: 6756}
+      Script: {instanceID: 6760}
     - Class: 114
-      Script: {instanceID: 6960}
+      Script: {instanceID: 6964}
     - Class: 114
-      Script: {instanceID: 7378}
+      Script: {instanceID: 7382}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -304,6 +313,12 @@ ScriptsOnlyBuild:
     className: CinemachinePixelPerfect
   - hash:
       serializedVersion: 2
+      Hash: d0ef797a885ffb56c18670bc8058f265
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Health
+  - hash:
+      serializedVersion: 2
       Hash: 882f862234b9853da2258207eee5a91b
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
@@ -338,6 +353,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.VisualScripting.Core.dll
     namespaceName: Unity.VisualScripting
     className: UnityOnBecameVisibleMessageListener
+  - hash:
+      serializedVersion: 2
+      Hash: a8bff57286a528f09583de1c3fbf4695
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: CameraController
   - hash:
       serializedVersion: 2
       Hash: cc4274b586df3c02688bac01b88bd16c
@@ -1066,7 +1087,7 @@ ScriptsOnlyBuild:
     className: ScrollRect
   - hash:
       serializedVersion: 2
-      Hash: b4f8d71c49250de1782754bd69e02e84
+      Hash: a98b3aa291430146d332933cf2ec1287
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: MeowKnightController

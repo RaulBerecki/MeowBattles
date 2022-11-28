@@ -7,20 +7,22 @@ public class MeowolasController : MonoBehaviour
     [SerializeField] Ground gnd;
     public Rigidbody2D rb;
     public float jumpForce, speed;
-    float Horizontal, realspeed, dodgeCooldown;
+    float Horizontal, realspeed, dodgeCooldown,damageCooldown;
     public int statement;
     string[] controls;
     [SerializeField] Body body;
     Animator playerAnimator;
-    public bool isDodging;
+    public bool isDodging,isDead;
     //Attack variables
     gameController GM;
     Health enemyHealth, health;
     // Start is called before the first frame update
     void Start()
     {
+        isDead = false;
         GM = GameObject.Find("GameManager").GetComponent<gameController>();
         dodgeCooldown = .8f;
+        damageCooldown = .2f;
         isDodging = false;
         rb = GetComponent<Rigidbody2D>();
         playerAnimator = GetComponent<Animator>();
@@ -54,7 +56,12 @@ public class MeowolasController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Movement();
+        if (!isDead)
+        {
+            HealthLook();
+            //Attack();
+            Movement();
+        }
         Animations();
     }
     void Movement()
@@ -92,14 +99,30 @@ public class MeowolasController : MonoBehaviour
     }
     void Animations()
     {
-        if (Horizontal != 0 && gnd.isGrounded && !isDodging)
+        if (Horizontal != 0 && gnd.isGrounded && !isDodging && !isDead)
             playerAnimator.Play("Run");
-        else if (!gnd.isGrounded && !isDodging)
+        else if (!gnd.isGrounded && !isDodging && !isDead)
             playerAnimator.Play("Jump");
-        else if (Horizontal == 0 && gnd.isGrounded)
+        else if (Horizontal == 0 && gnd.isGrounded && !isDead)
             playerAnimator.Play("Idle");
-        else if (isDodging)
+        else if (isDodging && !isDead)
             playerAnimator.Play("Dodge");
+        else if (isDead)
+            playerAnimator.Play("Dead");
+    }
+    void HealthLook()
+    {
+        if (health.isDamaged)
+        {
+            damageCooldown -= Time.deltaTime;
+        }
+        if (damageCooldown <= 0)
+        {
+            health.isDamaged = false;
+            damageCooldown = .2f;
+        }
+        if (health.health <= 0)
+            isDead = true;
     }
     void Attack()
     {

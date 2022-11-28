@@ -60,8 +60,10 @@
     <Compile Include="Assets\Scripts\Health.cs" />
     <Compile Include="Assets\Scripts\gameController.cs" />
     <Compile Include="Assets\Scripts\MeowolasController.cs" />
+    <Compile Include="Assets\Scripts\CameraController.cs" />
     <Compile Include="Assets\Scripts\Body.cs" />
     <Compile Include="Assets\Scripts\MeowtarController.cs" />
+    <Compile Include="Assets\Scripts\FireballController.cs" />
     <Compile Include="Assets\Scripts\SelectMenu.cs" />
     <Compile Include="Assets\Scripts\MeowKnightController.cs" />
     <Compile Include="Assets\Scripts\Ground.cs" />

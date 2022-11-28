@@ -7,19 +7,26 @@ public class MeowtarController : MonoBehaviour
     [SerializeField] Ground gnd;
     public Rigidbody2D rb;
     public float jumpForce, speed;
-    float Horizontal, realspeed, dodgeCooldown;
+    float Horizontal, realspeed, dodgeCooldown,damageCooldown, attackCooldown;
     public int statement;
     string[] controls;
     [SerializeField] Body body;
     Animator playerAnimator;
-    public bool isDodging;
+    public bool isDodging,isDead,isAttacking;
     //Attack variables
     gameController GM;
     Health enemyHealth, health;
+    [SerializeField] GameObject fireball;
+    [SerializeField] Transform attackcoord;
+    string enemy;
     // Start is called before the first frame update
     void Start()
     {
+        isDead = false;
+        isAttacking = false;
+        attackCooldown = 2f;
         GM = GameObject.Find("GameManager").GetComponent<gameController>();
+        damageCooldown = .2f;
         dodgeCooldown = 1f;
         isDodging = false;
         rb = GetComponent<Rigidbody2D>();
@@ -35,8 +42,9 @@ public class MeowtarController : MonoBehaviour
             PlayerPrefs.SetInt("Player1", 0);
             body.player = "Player1";
             enemyHealth = GM.players[1].GetComponent<Health>();
+            enemy = "Player2";
         }
-        if (PlayerPrefs.GetInt("Player2") == 2)
+        else if (PlayerPrefs.GetInt("Player2") == 2)
         {
             controls[0] = "Horizontal2";
             controls[1] = "Jump2";
@@ -46,6 +54,7 @@ public class MeowtarController : MonoBehaviour
             PlayerPrefs.SetInt("Player2", 0);
             body.player = "Player2";
             enemyHealth = GM.players[0].GetComponent<Health>();
+            enemy = "Player1";
         }
         realspeed = speed;
         health = GetComponent<Health>();
@@ -54,7 +63,12 @@ public class MeowtarController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Movement();
+        if (!isDead)
+        {
+            HealthLook();
+            Attack();
+            Movement();
+        }
         Animations();
     }
     void Movement()
@@ -92,17 +106,51 @@ public class MeowtarController : MonoBehaviour
     }
     void Animations()
     {
-        if (Horizontal != 0 && gnd.isGrounded && !isDodging)
+        if (Horizontal != 0 && gnd.isGrounded && !isDodging && !isDead)
             playerAnimator.Play("Run");
-        else if (!gnd.isGrounded && !isDodging)
+        else if (!gnd.isGrounded && !isDodging && !isDead)
             playerAnimator.Play("Jump");
-        else if (Horizontal == 0 && gnd.isGrounded)
+        else if (Horizontal == 0 && gnd.isGrounded && !isDead)
             playerAnimator.Play("Idle");
-        else if (isDodging)
+        else if (isDodging && !isDead)
             playerAnimator.Play("Dodge");
+        else if (isDead)
+            playerAnimator.Play("Dead");
+    }
+    void HealthLook()
+    {
+        if (health.isDamaged)
+        {
+            damageCooldown -= Time.deltaTime;
+        }
+        if (damageCooldown <= 0)
+        {
+            health.isDamaged = false;
+            damageCooldown = .2f;
+        }
+        if (health.health <= 0)
+            isDead = true;
     }
     void Attack()
     {
+        if (isAttacking)
+        {
+            attackCooldown -= Time.deltaTime;
+            Horizontal = 0;
+        }
 
+        if (attackCooldown <= 0)
+        {
+            isAttacking = false;
+            attackCooldown = 2f;
+        }
+        if (Input.GetButtonDown(controls[3]) && isAttacking == false)
+        {
+            GameObject obj=Instantiate(fireball, attackcoord.position, transform.rotation);
+            obj.GetComponent<FireballController>().enemyhealth = enemyHealth;
+            obj.GetComponent<FireballController>().enemy = enemy;
+            obj.GetComponent<FireballController>().direction = transform.localScale.x;
+            isAttacking = true;
+        }
     }
 }

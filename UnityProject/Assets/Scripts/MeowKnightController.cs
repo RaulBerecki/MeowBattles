@@ -12,7 +12,7 @@ public class MeowKnightController : MonoBehaviour
     string[] controls;
     [SerializeField] Body body;
     Animator playerAnimator;
-    public bool isDodging;
+    public bool isDodging,isDead;
     //Attack variables
     gameController GM;
     public Health enemyHealth, health;
@@ -21,6 +21,7 @@ public class MeowKnightController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        isDead = false;
         attackCooldown = .3f;
         damageCooldown = .2f;
         GM = GameObject.Find("GameManager").GetComponent<gameController>();
@@ -60,10 +61,13 @@ public class MeowKnightController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Attack();
-        Movement();
+        if (!isDead)
+        {
+            HealthLook();
+            Attack();
+            Movement();
+        }
         Animations();
-        HealthLook();
     }
     void Movement()
     {
@@ -99,18 +103,20 @@ public class MeowKnightController : MonoBehaviour
     }
     void Animations()
     {
-        if (Horizontal != 0 && gnd.isGrounded && !isDodging && !isAttacking && !health.isDamaged)
+        if (Horizontal != 0 && gnd.isGrounded && !isDodging && !isAttacking && !health.isDamaged && !isDead)
             playerAnimator.Play("Run");
-        else if (!gnd.isGrounded && !isDodging && !isAttacking && !health.isDamaged)
+        else if (!gnd.isGrounded && !isDodging && !isAttacking && !health.isDamaged && !isDead)
             playerAnimator.Play("Jump");
-        else if (Horizontal == 0 && gnd.isGrounded && !isAttacking && !health.isDamaged)
+        else if (Horizontal == 0 && gnd.isGrounded && !isAttacking && !health.isDamaged && !isDead)
             playerAnimator.Play("Idle");
-        else if (isDodging && !health.isDamaged)
+        else if (isDodging && !health.isDamaged && !isDead)
             playerAnimator.Play("Dodge");
-        else if (isAttacking && !health.isDamaged)
+        else if (isAttacking && !health.isDamaged && !isDead)
             playerAnimator.Play("Attack");
-        else if (health.isDamaged)
+        else if (health.isDamaged && !isDead)
             playerAnimator.Play("TakeDamage");
+        else if (isDead)
+            playerAnimator.Play("Dead");
     }
     void HealthLook()
     {
@@ -123,6 +129,8 @@ public class MeowKnightController : MonoBehaviour
             health.isDamaged = false;
             damageCooldown = .2f;
         }
+        if (health.health <= 0)
+            isDead = true;
     }
     void Attack()
     {
