@@ -72,7 +72,8 @@ public class MeowthurController : MonoBehaviour
     void Movement()
     {
         way = transform.localScale.x;
-        Horizontal = Input.GetAxisRaw(controls[0]);
+        if (!isAttacking)
+            Horizontal = Input.GetAxisRaw(controls[0]);
         rb.velocity = new Vector2(Horizontal * speed, rb.velocity.y);
         if (gnd.isGrounded)
             speed = realspeed;
@@ -112,7 +113,10 @@ public class MeowthurController : MonoBehaviour
             damageCooldown = .2f;
         }
         if (health.health <= 0)
+        {
             isDead = true;
+            GM.finished = true;
+        }
     }
     void Attack()
     {
@@ -130,7 +134,7 @@ public class MeowthurController : MonoBehaviour
         if (Input.GetButtonDown(controls[3]) && isAttacking == false && gnd.isGrounded)
         {
             isAttacking = true;
-            if (((way > 0 && enemy.transform.position.x - transform.position.x <= 1.5f && enemy.transform.position.x - transform.position.x > 0f) || (way < 0 && enemy.transform.position.x - transform.position.x >= -1.5f && enemy.transform.position.x - transform.position.x < 0f)) && enemy.transform.position.y - transform.position.y <= .5f)
+            if (((way > 0 && enemy.transform.position.x - transform.position.x <= 1.75f && enemy.transform.position.x - transform.position.x > 0f) || (way < 0 && enemy.transform.position.x - transform.position.x >= -1.75f && enemy.transform.position.x - transform.position.x < 0f)) && enemy.transform.position.y - transform.position.y <= .5f)
             {
                 enemyHealth.health -= Random.RandomRange(10, 25);
                 enemyHealth.isDamaged = true;

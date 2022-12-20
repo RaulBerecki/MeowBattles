@@ -7,19 +7,24 @@ public class MeowolasController : MonoBehaviour
     [SerializeField] Ground gnd;
     public Rigidbody2D rb;
     public float jumpForce, speed;
-    float Horizontal, realspeed, dodgeCooldown,damageCooldown;
+    float Horizontal, realspeed, dodgeCooldown,damageCooldown,attackCooldown;
     public int statement;
     string[] controls;
     [SerializeField] Body body;
     Animator playerAnimator;
-    public bool isDodging,isDead;
+    public bool isDodging,isDead,isAttacking,arrowStatus;
     //Attack variables
     gameController GM;
     Health enemyHealth, health;
+    [SerializeField] GameObject arrow;
+    [SerializeField] Transform attackcoord;
+    string enemy;
     // Start is called before the first frame update
     void Start()
     {
+        arrowStatus = false;
         isDead = false;
+        attackCooldown = .5f;
         GM = GameObject.Find("GameManager").GetComponent<gameController>();
         dodgeCooldown = .8f;
         damageCooldown = .2f;
@@ -37,8 +42,9 @@ public class MeowolasController : MonoBehaviour
             PlayerPrefs.SetInt("Player1", 0);
             body.player = "Player1";
             enemyHealth = GM.players[1].GetComponent<Health>();
+            enemy = "Player2";
         }
-        if (PlayerPrefs.GetInt("Player2") == 4)
+        else if (PlayerPrefs.GetInt("Player2") == 4)
         {
             controls[0] = "Horizontal2";
             controls[1] = "Jump2";
@@ -48,6 +54,7 @@ public class MeowolasController : MonoBehaviour
             PlayerPrefs.SetInt("Player2", 0);
             body.player = "Player2";
             enemyHealth = GM.players[0].GetComponent<Health>();
+            enemy = "Player1";
         }
         realspeed = speed;
         health = GetComponent<Health>();
@@ -58,8 +65,9 @@ public class MeowolasController : MonoBehaviour
     {
         if (!isDead)
         {
-            HealthLook();
-            //Attack();
+            if (!isDodging)
+                HealthLook();
+            Attack();
             Movement();
         }
         Animations();
@@ -67,7 +75,7 @@ public class MeowolasController : MonoBehaviour
     void Movement()
     {
         float way = transform.localScale.x;
-        if (!isDodging)
+        if (!isDodging && !isAttacking)
             Horizontal = Input.GetAxisRaw(controls[0]);
         rb.velocity = new Vector2(Horizontal * speed, rb.velocity.y);
         if (gnd.isGrounded)
@@ -99,14 +107,18 @@ public class MeowolasController : MonoBehaviour
     }
     void Animations()
     {
-        if (Horizontal != 0 && gnd.isGrounded && !isDodging && !isDead)
+        if (Horizontal != 0 && gnd.isGrounded && !isDodging && !isDead && !isAttacking && !health.isDamaged)
             playerAnimator.Play("Run");
-        else if (!gnd.isGrounded && !isDodging && !isDead)
+        else if (!gnd.isGrounded && !isDodging && !isDead && !isAttacking && !health.isDamaged)
             playerAnimator.Play("Jump");
-        else if (Horizontal == 0 && gnd.isGrounded && !isDead)
+        else if (Horizontal == 0 && gnd.isGrounded && !isDead && !isAttacking && !health.isDamaged)
             playerAnimator.Play("Idle");
-        else if (isDodging && !isDead)
+        else if (isDodging && !isDead && !isAttacking && !health.isDamaged)
             playerAnimator.Play("Dodge");
+        else if (isAttacking && !isDead)
+            playerAnimator.Play("Attack");
+        else if (health.isDamaged && !isDead)
+            playerAnimator.Play("TakeDamage");
         else if (isDead)
             playerAnimator.Play("Dead");
     }
@@ -122,10 +134,37 @@ public class MeowolasController : MonoBehaviour
             damageCooldown = .2f;
         }
         if (health.health <= 0)
+        {
             isDead = true;
+            GM.finished = true;
+        }
     }
     void Attack()
     {
+        if (isAttacking)
+        {
+            attackCooldown -= Time.deltaTime;
+            Horizontal = 0;
+        }
 
+        if (attackCooldown <= 0)
+        {
+            isAttacking = false;
+            attackCooldown = .5f;
+            arrowStatus = false;
+        }
+        if (Input.GetButtonDown(controls[3]) && isAttacking == false)
+        {
+            isAttacking = true;
+        }
+        if(attackCooldown<=.2f && !arrowStatus)
+        {
+            GameObject obj = Instantiate(arrow, attackcoord.position, transform.rotation);
+            obj.GetComponent<ArrowController>().enemyhealth = enemyHealth;
+            obj.GetComponent<ArrowController>().enemy = enemy;
+            obj.GetComponent<Transform>().localScale = new Vector3(transform.localScale.x, 1, 1);
+            obj.GetComponent<ArrowController>().direction = transform.localScale.x;
+            arrowStatus = true;
+        }
     }
 }

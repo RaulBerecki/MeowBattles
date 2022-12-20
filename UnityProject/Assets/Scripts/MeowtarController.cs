@@ -24,7 +24,7 @@ public class MeowtarController : MonoBehaviour
     {
         isDead = false;
         isAttacking = false;
-        attackCooldown = 2f;
+        attackCooldown = .3f;
         GM = GameObject.Find("GameManager").GetComponent<gameController>();
         damageCooldown = .2f;
         dodgeCooldown = 1f;
@@ -65,7 +65,8 @@ public class MeowtarController : MonoBehaviour
     {
         if (!isDead)
         {
-            HealthLook();
+            if(!isDodging)
+                HealthLook();
             Attack();
             Movement();
         }
@@ -74,7 +75,7 @@ public class MeowtarController : MonoBehaviour
     void Movement()
     {
         float way = transform.localScale.x;
-        if (!isDodging)
+        if (!isDodging && !isAttacking)
             Horizontal = Input.GetAxisRaw(controls[0]);
         rb.velocity = new Vector2(Horizontal * speed, rb.velocity.y);
         if (gnd.isGrounded)
@@ -106,16 +107,20 @@ public class MeowtarController : MonoBehaviour
     }
     void Animations()
     {
-        if (Horizontal != 0 && gnd.isGrounded && !isDodging && !isDead)
+        if (Horizontal != 0 && gnd.isGrounded && !isDodging && !isAttacking && !health.isDamaged && !isDead)
             playerAnimator.Play("Run");
-        else if (!gnd.isGrounded && !isDodging && !isDead)
+        else if (!gnd.isGrounded && !isDodging && !isAttacking && !health.isDamaged && !isDead)
             playerAnimator.Play("Jump");
-        else if (Horizontal == 0 && gnd.isGrounded && !isDead)
+        else if (Horizontal == 0 && gnd.isGrounded && !isAttacking && !health.isDamaged && !isDead)
             playerAnimator.Play("Idle");
-        else if (isDodging && !isDead)
+        else if (isDodging && !health.isDamaged && !isDead)
             playerAnimator.Play("Dodge");
+        else if (isAttacking && !health.isDamaged && !isDead)
+            playerAnimator.Play("Attack");
+        else if (health.isDamaged && !isDead)
+            playerAnimator.Play("TakeDamage");
         else if (isDead)
-            playerAnimator.Play("Dead");
+            playerAnimator.Play("Dead");    
     }
     void HealthLook()
     {
@@ -129,7 +134,10 @@ public class MeowtarController : MonoBehaviour
             damageCooldown = .2f;
         }
         if (health.health <= 0)
+        {
             isDead = true;
+            GM.finished = true;
+        }
     }
     void Attack()
     {
@@ -142,7 +150,7 @@ public class MeowtarController : MonoBehaviour
         if (attackCooldown <= 0)
         {
             isAttacking = false;
-            attackCooldown = 2f;
+            attackCooldown = .3f;
         }
         if (Input.GetButtonDown(controls[3]) && isAttacking == false)
         {

@@ -224,6 +224,7 @@ MonoBehaviour:
   isDodging: 0
   isDead: 0
   isAttacking: 0
+  coll: {fileID: 2893401914085060216}
   fireball: {fileID: 1963687506194778022, guid: f7a8f2341d021e54aa58ec693d7c0002, type: 3}
   attackcoord: {fileID: 867959081142838762}
 --- !u!114 &5056373208086804774
@@ -239,7 +240,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isDamaged: 0
-  health: 0
+  health: 100
 --- !u!1 &2893401914706071640
 GameObject:
   m_ObjectHideFlags: 0

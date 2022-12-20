@@ -63,7 +63,8 @@ public class MeowKnightController : MonoBehaviour
     {
         if (!isDead)
         {
-            HealthLook();
+            if (!isDodging)
+                HealthLook();
             Attack();
             Movement();
         }
@@ -72,7 +73,7 @@ public class MeowKnightController : MonoBehaviour
     void Movement()
     {
         way = transform.localScale.x;
-        if(!isDodging)
+        if(!isDodging && !isAttacking)
             Horizontal = Input.GetAxisRaw(controls[0]);
         rb.velocity = new Vector2(Horizontal * speed, rb.velocity.y);
         if (gnd.isGrounded)
@@ -93,8 +94,7 @@ public class MeowKnightController : MonoBehaviour
         {
             rb.velocity = new Vector2(way * speed * 1.3f, rb.velocity.y);
             dodgeCooldown -= Time.deltaTime;
-        }
-            
+        }     
         if (dodgeCooldown <= 0)   
         {
             isDodging = false;
@@ -103,15 +103,15 @@ public class MeowKnightController : MonoBehaviour
     }
     void Animations()
     {
-        if (Horizontal != 0 && gnd.isGrounded && !isDodging && !isAttacking && !health.isDamaged && !isDead)
+        if (Horizontal != 0 && gnd.isGrounded && !isDodging && !isDead && !isAttacking && !health.isDamaged)
             playerAnimator.Play("Run");
-        else if (!gnd.isGrounded && !isDodging && !isAttacking && !health.isDamaged && !isDead)
+        else if (!gnd.isGrounded && !isDodging && !isDead && !isAttacking && !health.isDamaged)
             playerAnimator.Play("Jump");
-        else if (Horizontal == 0 && gnd.isGrounded && !isAttacking && !health.isDamaged && !isDead)
+        else if (Horizontal == 0 && gnd.isGrounded && !isDead && !isAttacking && !health.isDamaged)
             playerAnimator.Play("Idle");
-        else if (isDodging && !health.isDamaged && !isDead)
+        else if (isDodging && !isDead && !isAttacking && !health.isDamaged)
             playerAnimator.Play("Dodge");
-        else if (isAttacking && !health.isDamaged && !isDead)
+        else if (isAttacking && !isDead)
             playerAnimator.Play("Attack");
         else if (health.isDamaged && !isDead)
             playerAnimator.Play("TakeDamage");
@@ -130,7 +130,10 @@ public class MeowKnightController : MonoBehaviour
             damageCooldown = .2f;
         }
         if (health.health <= 0)
+        {
             isDead = true;
+            GM.finished = true;
+        }
     }
     void Attack()
     {

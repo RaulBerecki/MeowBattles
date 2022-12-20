@@ -1,8 +1,10 @@
 ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
+    - ArrowController
     - Body
     - CameraController
+    - FireballController
     - Ground
     - Health
     - MeowKnightController
@@ -112,6 +114,8 @@ ScriptsOnlyBuild:
     - Class: 104
       Script: {instanceID: 0}
     - Class: 114
+      Script: {instanceID: 1620}
+    - Class: 114
       Script: {instanceID: 1688}
     - Class: 114
       Script: {instanceID: 2446}
@@ -122,13 +126,25 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 2792}
     - Class: 114
+      Script: {instanceID: 2862}
+    - Class: 114
+      Script: {instanceID: 3122}
+    - Class: 114
       Script: {instanceID: 4098}
     - Class: 114
       Script: {instanceID: 4600}
     - Class: 114
-      Script: {instanceID: 8804}
+      Script: {instanceID: 5118}
     - Class: 114
-      Script: {instanceID: 9496}
+      Script: {instanceID: 6762}
+    - Class: 114
+      Script: {instanceID: 7384}
+    - Class: 114
+      Script: {instanceID: 8806}
+    - Class: 114
+      Script: {instanceID: 9290}
+    - Class: 114
+      Script: {instanceID: 9500}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 157
@@ -138,6 +154,12 @@ ScriptsOnlyBuild:
     - Class: 212
       Script: {instanceID: 0}
     - Class: 213
+      Script: {instanceID: 0}
+    - Class: 222
+      Script: {instanceID: 0}
+    - Class: 223
+      Script: {instanceID: 0}
+    - Class: 224
       Script: {instanceID: 0}
     Assets/Scenes/SelectScene.unity:
     - Class: 1
@@ -177,15 +199,15 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 5100}
     - Class: 114
-      Script: {instanceID: 5610}
+      Script: {instanceID: 5612}
     - Class: 114
-      Script: {instanceID: 6016}
+      Script: {instanceID: 6018}
     - Class: 114
-      Script: {instanceID: 6760}
+      Script: {instanceID: 6762}
     - Class: 114
-      Script: {instanceID: 6964}
+      Script: {instanceID: 6966}
     - Class: 114
-      Script: {instanceID: 7382}
+      Script: {instanceID: 7384}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -217,7 +239,7 @@ ScriptsOnlyBuild:
     className: Image
   - hash:
       serializedVersion: 2
-      Hash: b4f8d71c49250de1782754bd69e02e84
+      Hash: 2986dc23e3a1f9d75fec928df6b4824b
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: MeowthurController
@@ -319,7 +341,7 @@ ScriptsOnlyBuild:
     className: Health
   - hash:
       serializedVersion: 2
-      Hash: 882f862234b9853da2258207eee5a91b
+      Hash: 3491f71e71968e041d172d3a93b94e78
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: gameController
@@ -331,7 +353,7 @@ ScriptsOnlyBuild:
     className: RawImage
   - hash:
       serializedVersion: 2
-      Hash: b4f8d71c49250de1782754bd69e02e84
+      Hash: ec9fa8ce925ed941a179b3d28ea74fc3
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: MeowolasController
@@ -613,7 +635,7 @@ ScriptsOnlyBuild:
     className: SpriteShapeGeometryCache
   - hash:
       serializedVersion: 2
-      Hash: b4f8d71c49250de1782754bd69e02e84
+      Hash: 5f2cbf569734a15c8b57192beff357d3
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: MeowtarController
@@ -695,6 +717,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.VisualScripting.Core.dll
     namespaceName: Unity.VisualScripting
     className: UnityOnCancelMessageListener
+  - hash:
+      serializedVersion: 2
+      Hash: 1717932bd4fb5fa73c861cebdab1ee76
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: FireballController
   - hash:
       serializedVersion: 2
       Hash: ab6a2fed0a3d86e42cbaa680bbf9bfac
@@ -1087,7 +1115,7 @@ ScriptsOnlyBuild:
     className: ScrollRect
   - hash:
       serializedVersion: 2
-      Hash: a98b3aa291430146d332933cf2ec1287
+      Hash: 0e98fcc9c25020dc6d7fb58456b0d65e
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: MeowKnightController
@@ -1147,6 +1175,12 @@ ScriptsOnlyBuild:
     className: SpriteLibrarySourceAsset
   - hash:
       serializedVersion: 2
+      Hash: 1717932bd4fb5fa73c861cebdab1ee76
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: ArrowController
+  - hash:
+      serializedVersion: 2
       Hash: 31ab5767657b9f7350ba6a324e6334e5
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
@@ -1191,4 +1225,4 @@ ScriptsOnlyBuild:
   scenePathNames:
   - Assets/Scenes/SelectScene.unity
   - Assets/Scenes/SampleScene.unity
-  playerPath: D:/UnityProjects/MeowBattles/UnityProject/BuildTest/UnityProject.exe
+  playerPath: D:/UnityProjects/MeowBattles/UnityProject/BuildTest/MeowBattle.exe

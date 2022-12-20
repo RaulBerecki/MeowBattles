@@ -66,6 +66,7 @@
     <Compile Include="Assets\Scripts\FireballController.cs" />
     <Compile Include="Assets\Scripts\SelectMenu.cs" />
     <Compile Include="Assets\Scripts\MeowKnightController.cs" />
+    <Compile Include="Assets\Scripts\ArrowController.cs" />
     <Compile Include="Assets\Scripts\Ground.cs" />
   </ItemGroup>
   <ItemGroup>

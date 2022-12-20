@@ -230,9 +230,14 @@ MonoBehaviour:
   rb: {fileID: 0}
   jumpForce: 9
   speed: 4
+  way: 0
   statement: 0
   body: {fileID: 5518531035217426500}
   isDodging: 0
+  isDead: 0
+  coll: {fileID: 5518531035217426501}
+  enemyHealth: {fileID: 0}
+  health: {fileID: 0}
 --- !u!50 &5518531035117281618
 Rigidbody2D:
   serializedVersion: 4
@@ -267,7 +272,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isDamaged: 0
-  health: 0
+  health: 100
 --- !u!1 &5518531035217426499
 GameObject:
   m_ObjectHideFlags: 0
