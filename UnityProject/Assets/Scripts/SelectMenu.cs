@@ -1,9 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using TMPro;
 public class SelectMenu : MonoBehaviour
 {
+    [SerializeField] TextMeshProUGUI timeLeftText;
     public GameObject[] menu1, menu2;
     int ply1, ply2;
     float timer;
@@ -20,6 +21,7 @@ public class SelectMenu : MonoBehaviour
     void Update()
     {
         timer -= Time.deltaTime;
+        timeLeftText.text = "You start in " + (int)timer;
         if(Input.GetKeyDown(KeyCode.A))
         {
             menu1[ply1 - 1].SetActive(false);

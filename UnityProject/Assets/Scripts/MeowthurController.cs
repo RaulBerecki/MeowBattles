@@ -72,7 +72,7 @@ public class MeowthurController : MonoBehaviour
     void Movement()
     {
         way = transform.localScale.x;
-        if (!isAttacking)
+        if (!isAttacking && !health.isDamaged)
             Horizontal = Input.GetAxisRaw(controls[0]);
         rb.velocity = new Vector2(Horizontal * speed, rb.velocity.y);
         if (gnd.isGrounded)
@@ -106,6 +106,7 @@ public class MeowthurController : MonoBehaviour
         if (health.isDamaged)
         {
             damageCooldown -= Time.deltaTime;
+            rb.velocity = new Vector2(0, 0);
         }
         if (damageCooldown <= 0)
         {

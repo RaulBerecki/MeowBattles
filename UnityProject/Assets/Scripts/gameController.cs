@@ -22,6 +22,7 @@ public class gameController : MonoBehaviour
         inGameAvatars[1].sprite = avatars[PlayerPrefs.GetInt("Player2") - 1];
         players[0]=Instantiate(characters[PlayerPrefs.GetInt("Player1") - 1], spawn1.position, transform.rotation);
         players[1]=Instantiate(characters[PlayerPrefs.GetInt("Player2") - 1], spawn2.position, transform.rotation);
+        players[1].GetComponent<Transform>().localScale = new Vector3(-1, 1, 1);
         camC.target1 = players[0].transform;
         camC.target2 = players[1].transform;
     }

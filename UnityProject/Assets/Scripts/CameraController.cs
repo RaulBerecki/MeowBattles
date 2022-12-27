@@ -11,18 +11,18 @@ public class CameraController : MonoBehaviour
     void Start()
     {
         cam = GetComponent<Camera>();
-        if (distance > 9)
-            cam.orthographicSize = distance / 3;
+        if (distance > 10)
+            cam.orthographicSize = distance / 2.5f;
         else
-            cam.orthographicSize = 3;
+            cam.orthographicSize = 4;
     }
 
     // Update is called once per frame
     void Update()
     {
-        distance = Mathf.Abs(target1.position.x) + Mathf.Abs(target2.position.x);
+        distance = Vector3.Distance(target1.position, target2.position);
         camerafocus.position = new Vector3((target1.position.x + target2.position.x) / 2, (target1.position.y + target2.position.y) / 2, -10);
-        if (distance > 9)
-            cam.orthographicSize = distance / 3;
+        if (distance > 10)
+            cam.orthographicSize = distance / 2.5f;
     }
 }

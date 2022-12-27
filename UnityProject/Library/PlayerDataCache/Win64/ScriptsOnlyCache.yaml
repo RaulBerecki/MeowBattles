@@ -44,10 +44,8 @@ ScriptsOnlyBuild:
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
@@ -114,37 +112,37 @@ ScriptsOnlyBuild:
     - Class: 104
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 1620}
+      Script: {instanceID: 1622}
     - Class: 114
-      Script: {instanceID: 1688}
+      Script: {instanceID: 1690}
     - Class: 114
-      Script: {instanceID: 2446}
+      Script: {instanceID: 2448}
     - Class: 114
-      Script: {instanceID: 2504}
+      Script: {instanceID: 2506}
     - Class: 114
-      Script: {instanceID: 2550}
+      Script: {instanceID: 2552}
     - Class: 114
-      Script: {instanceID: 2792}
+      Script: {instanceID: 2794}
     - Class: 114
-      Script: {instanceID: 2862}
+      Script: {instanceID: 2864}
     - Class: 114
-      Script: {instanceID: 3122}
+      Script: {instanceID: 3124}
     - Class: 114
-      Script: {instanceID: 4098}
+      Script: {instanceID: 4100}
     - Class: 114
-      Script: {instanceID: 4600}
+      Script: {instanceID: 4602}
     - Class: 114
-      Script: {instanceID: 5118}
+      Script: {instanceID: 5120}
     - Class: 114
-      Script: {instanceID: 6762}
+      Script: {instanceID: 6764}
     - Class: 114
-      Script: {instanceID: 7384}
+      Script: {instanceID: 7386}
     - Class: 114
-      Script: {instanceID: 8806}
+      Script: {instanceID: 8808}
     - Class: 114
-      Script: {instanceID: 9290}
+      Script: {instanceID: 9292}
     - Class: 114
-      Script: {instanceID: 9500}
+      Script: {instanceID: 9502}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 157
@@ -187,27 +185,27 @@ ScriptsOnlyBuild:
     - Class: 104
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 1620}
+      Script: {instanceID: 1622}
     - Class: 114
-      Script: {instanceID: 2346}
+      Script: {instanceID: 2348}
     - Class: 114
-      Script: {instanceID: 2862}
+      Script: {instanceID: 2864}
     - Class: 114
-      Script: {instanceID: 3122}
+      Script: {instanceID: 3124}
     - Class: 114
-      Script: {instanceID: 4766}
+      Script: {instanceID: 4768}
     - Class: 114
-      Script: {instanceID: 5100}
+      Script: {instanceID: 5102}
     - Class: 114
-      Script: {instanceID: 5612}
+      Script: {instanceID: 5614}
     - Class: 114
-      Script: {instanceID: 6018}
+      Script: {instanceID: 6020}
     - Class: 114
-      Script: {instanceID: 6762}
+      Script: {instanceID: 6764}
     - Class: 114
-      Script: {instanceID: 6966}
+      Script: {instanceID: 6968}
     - Class: 114
-      Script: {instanceID: 7384}
+      Script: {instanceID: 7386}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -767,7 +765,7 @@ ScriptsOnlyBuild:
     className: GridLayoutGroup
   - hash:
       serializedVersion: 2
-      Hash: 73f02d736243507c4fc8130277fa3c16
+      Hash: 237df809276e6251b066ed5733e5eded
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: SelectMenu

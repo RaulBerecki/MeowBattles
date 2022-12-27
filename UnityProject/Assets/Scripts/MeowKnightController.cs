@@ -63,8 +63,7 @@ public class MeowKnightController : MonoBehaviour
     {
         if (!isDead)
         {
-            if (!isDodging)
-                HealthLook();
+            HealthLook();
             Attack();
             Movement();
         }
@@ -73,7 +72,7 @@ public class MeowKnightController : MonoBehaviour
     void Movement()
     {
         way = transform.localScale.x;
-        if(!isDodging && !isAttacking)
+        if(!isDodging && !isAttacking && !health.isDamaged)
             Horizontal = Input.GetAxisRaw(controls[0]);
         rb.velocity = new Vector2(Horizontal * speed, rb.velocity.y);
         if (gnd.isGrounded)
@@ -86,11 +85,11 @@ public class MeowKnightController : MonoBehaviour
             transform.localScale = new Vector3(1, 1, 1);
         else if(Horizontal <0)
             transform.localScale = new Vector3(-1, 1, 1);
-        if (!isDodging && Input.GetButtonDown(controls[2]) && gnd.isGrounded)
+        if (!isDodging && Input.GetButtonDown(controls[2]) && gnd.isGrounded && Horizontal!=0)
         {
             isDodging = true;
         }
-        if (isDodging)
+        if (isDodging && !health.isDamaged)
         {
             rb.velocity = new Vector2(way * speed * 1.3f, rb.velocity.y);
             dodgeCooldown -= Time.deltaTime;
@@ -122,7 +121,10 @@ public class MeowKnightController : MonoBehaviour
     {
         if(health.isDamaged)
         {
+            isDodging = false;
+            dodgeCooldown = .8f;
             damageCooldown -= Time.deltaTime;
+            rb.velocity = new Vector2(0, 0);
         }
         if (damageCooldown <= 0)
         {
@@ -151,7 +153,7 @@ public class MeowKnightController : MonoBehaviour
         if(Input.GetButtonDown(controls[3]) && isAttacking == false && gnd.isGrounded)
         {
             isAttacking = true;
-            if (((way>0 && enemy.transform.position.x-transform.position.x<=1.25f && enemy.transform.position.x - transform.position.x > 0f) || (way < 0 && enemy.transform.position.x - transform.position.x >= -1.25f && enemy.transform.position.x - transform.position.x < 0f)) && enemy.transform.position.y - transform.position.y<=.5f)
+            if (((way>0 && enemy.transform.position.x-transform.position.x<=1.4f && enemy.transform.position.x - transform.position.x > 0f) || (way < 0 && enemy.transform.position.x - transform.position.x >= -1.4f && enemy.transform.position.x - transform.position.x < 0f)) && enemy.transform.position.y - transform.position.y<=.5f)
             {
                 enemyHealth.health -= Random.RandomRange(10, 25);
                 enemyHealth.isDamaged = true;
