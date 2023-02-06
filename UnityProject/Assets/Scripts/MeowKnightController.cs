@@ -6,31 +6,33 @@ public class MeowKnightController : MonoBehaviour
 {
     [SerializeField] Ground gnd;
     public Rigidbody2D rb;
-    public float jumpForce, speed,way;
-    float Horizontal,realspeed,dodgeCooldown,attackCooldown,damageCooldown;
+    public float jumpForce, speed, way;
+    float Horizontal, realspeed, dodgeCooldown, attackCooldown, damageCooldown;
     public int statement;
     string[] controls;
     [SerializeField] Body body;
     Animator playerAnimator;
-    public bool isDodging,isDead;
+    public bool isDodging, isDead;
     //Attack variables
     gameController GM;
     public Health enemyHealth, health;
     bool isAttacking;
     GameObject enemy;
+    CameraController Camcontroller;
     // Start is called before the first frame update
     void Start()
     {
         isDead = false;
         attackCooldown = .3f;
         damageCooldown = .2f;
+        Camcontroller = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraController>();
         GM = GameObject.Find("GameManager").GetComponent<gameController>();
         dodgeCooldown = .8f;
         isDodging = false;
         rb = GetComponent<Rigidbody2D>();
         playerAnimator = GetComponent<Animator>();
         controls = new string[4];
-        if(PlayerPrefs.GetInt("Player1")==1)
+        if (PlayerPrefs.GetInt("Player1") == 1)
         {
             controls[0] = "Horizontal1";
             controls[1] = "Jump1";
@@ -42,7 +44,7 @@ public class MeowKnightController : MonoBehaviour
             enemyHealth = GM.players[1].GetComponent<Health>();
             enemy = GM.players[1];
         }
-        else if(PlayerPrefs.GetInt("Player2")==1)
+        else if (PlayerPrefs.GetInt("Player2") == 1)
         {
             controls[0] = "Horizontal2";
             controls[1] = "Jump2";
@@ -72,20 +74,20 @@ public class MeowKnightController : MonoBehaviour
     void Movement()
     {
         way = transform.localScale.x;
-        if(!isDodging && !isAttacking && !health.isDamaged)
+        if (!isDodging && !isAttacking && !health.isDamaged)
             Horizontal = Input.GetAxisRaw(controls[0]);
         rb.velocity = new Vector2(Horizontal * speed, rb.velocity.y);
         if (gnd.isGrounded)
             speed = realspeed;
         else if (!gnd.isGrounded)
-            speed = realspeed *.75f;
-        if (gnd.isGrounded && Input.GetButtonDown(controls[1]) &&!isDodging)
+            speed = realspeed * .75f;
+        if (gnd.isGrounded && Input.GetButtonDown(controls[1]) && !isDodging)
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
         if (Horizontal > 0)
             transform.localScale = new Vector3(1, 1, 1);
-        else if(Horizontal <0)
+        else if (Horizontal < 0)
             transform.localScale = new Vector3(-1, 1, 1);
-        if (!isDodging && Input.GetButtonDown(controls[2]) && gnd.isGrounded && Horizontal!=0)
+        if (!isDodging && Input.GetButtonDown(controls[2]) && gnd.isGrounded && Horizontal != 0)
         {
             isDodging = true;
         }
@@ -93,8 +95,8 @@ public class MeowKnightController : MonoBehaviour
         {
             rb.velocity = new Vector2(way * speed * 1.3f, rb.velocity.y);
             dodgeCooldown -= Time.deltaTime;
-        }     
-        if (dodgeCooldown <= 0)   
+        }
+        if (dodgeCooldown <= 0)
         {
             isDodging = false;
             dodgeCooldown = 0.8f;
@@ -110,7 +112,7 @@ public class MeowKnightController : MonoBehaviour
             playerAnimator.Play("Idle");
         else if (isDodging && !isDead && !isAttacking && !health.isDamaged)
             playerAnimator.Play("Dodge");
-        else if (isAttacking && !isDead)
+        else if (isAttacking && !isDead && !health.isDamaged)
             playerAnimator.Play("Attack");
         else if (health.isDamaged && !isDead)
             playerAnimator.Play("TakeDamage");
@@ -119,7 +121,7 @@ public class MeowKnightController : MonoBehaviour
     }
     void HealthLook()
     {
-        if(health.isDamaged)
+        if (health.isDamaged)
         {
             isDodging = false;
             dodgeCooldown = .8f;
@@ -131,10 +133,11 @@ public class MeowKnightController : MonoBehaviour
             health.isDamaged = false;
             damageCooldown = .2f;
         }
-        if (health.health <= 0)
+        if (health.health <= 0 || transform.position.y<-20)
         {
             isDead = true;
             GM.finished = true;
+            Camcontroller.target1 = enemy.transform;
         }
     }
     void Attack()
@@ -145,7 +148,7 @@ public class MeowKnightController : MonoBehaviour
             Horizontal = 0;
         }
             
-        if(attackCooldown<=0)
+        if(attackCooldown<=0 || health.isDamaged)
         {
             isAttacking = false;
             attackCooldown = .3f;

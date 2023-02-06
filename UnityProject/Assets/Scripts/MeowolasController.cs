@@ -19,12 +19,14 @@ public class MeowolasController : MonoBehaviour
     [SerializeField] GameObject arrow;
     [SerializeField] Transform attackcoord;
     string enemy;
+    CameraController Camcontroller;
     // Start is called before the first frame update
     void Start()
     {
         arrowStatus = false;
         isDead = false;
         attackCooldown = .5f;
+        Camcontroller = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraController>();
         GM = GameObject.Find("GameManager").GetComponent<gameController>();
         dodgeCooldown = .8f;
         damageCooldown = .2f;
@@ -135,10 +137,11 @@ public class MeowolasController : MonoBehaviour
             health.isDamaged = false;
             damageCooldown = .2f;
         }
-        if (health.health <= 0)
+        if (health.health <= 0 || transform.position.y < -20)
         {
             isDead = true;
             GM.finished = true;
+            Camcontroller.target1 = GameObject.FindGameObjectWithTag(enemy).transform;
         }
     }
     void Attack()
@@ -149,7 +152,7 @@ public class MeowolasController : MonoBehaviour
             Horizontal = 0;
         }
 
-        if (attackCooldown <= 0)
+        if (attackCooldown <= 0 || health.isDamaged)
         {
             isAttacking = false;
             attackCooldown = .5f;

@@ -106,7 +106,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 9130790764124151490}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 330ab0cfc96f9e043a3a47b06f172786, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -289,7 +289,6 @@ MonoBehaviour:
   isDead: 0
   isAttacking: 0
   arrowStatus: 0
-  coll: {fileID: 9130790764124151492}
   arrow: {fileID: 8330445085691234400, guid: 97ae2278cc77e68449e47bb5f508cf49, type: 3}
   attackcoord: {fileID: 7693380751737715513}
 --- !u!114 &7541846112800312333

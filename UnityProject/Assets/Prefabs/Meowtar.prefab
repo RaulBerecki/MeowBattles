@@ -42,7 +42,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 2893401914085060222}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 330ab0cfc96f9e043a3a47b06f172786, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -224,7 +224,6 @@ MonoBehaviour:
   isDodging: 0
   isDead: 0
   isAttacking: 0
-  coll: {fileID: 2893401914085060216}
   fireball: {fileID: 1963687506194778022, guid: f7a8f2341d021e54aa58ec693d7c0002, type: 3}
   attackcoord: {fileID: 867959081142838762}
 --- !u!114 &5056373208086804774

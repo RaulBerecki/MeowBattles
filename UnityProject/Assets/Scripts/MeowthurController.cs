@@ -18,12 +18,14 @@ public class MeowthurController : MonoBehaviour
     Health enemyHealth, health;
     bool isAttacking;
     GameObject enemy;
+    CameraController Camcontroller;
     // Start is called before the first frame update
     void Start()
     {
         isDead = false;
         attackCooldown = .5f;
         damageCooldown = .2f;
+        Camcontroller = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraController>();
         GM = GameObject.Find("GameManager").GetComponent<gameController>();
         dodgeCooldown = 1f;
         isDodging = false;
@@ -113,10 +115,11 @@ public class MeowthurController : MonoBehaviour
             health.isDamaged = false;
             damageCooldown = .2f;
         }
-        if (health.health <= 0)
+        if (health.health <= 0 || transform.position.y < -20)
         {
             isDead = true;
             GM.finished = true;
+            Camcontroller.target1 = enemy.transform;
         }
     }
     void Attack()
@@ -127,7 +130,7 @@ public class MeowthurController : MonoBehaviour
             Horizontal = 0;
         }
 
-        if (attackCooldown <= 0)
+        if (attackCooldown <= 0 || health.isDamaged)
         {
             isAttacking = false;
             attackCooldown = .3f;

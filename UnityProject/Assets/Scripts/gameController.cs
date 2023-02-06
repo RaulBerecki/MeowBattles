@@ -15,7 +15,7 @@ public class gameController : MonoBehaviour
     void Start()
     {
         finished = false;
-        timer = 2f;
+        timer = 5f;
         camC = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraController>();
         players = new GameObject[2];
         inGameAvatars[0].sprite = avatars[PlayerPrefs.GetInt("Player1") - 1];

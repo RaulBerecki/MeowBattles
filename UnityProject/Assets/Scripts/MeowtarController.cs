@@ -19,12 +19,14 @@ public class MeowtarController : MonoBehaviour
     [SerializeField] GameObject fireball;
     [SerializeField] Transform attackcoord;
     string enemy;
+    CameraController Camcontroller;
     // Start is called before the first frame update
     void Start()
     {
         isDead = false;
         isAttacking = false;
         attackCooldown = .3f;
+        Camcontroller = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraController>();
         GM = GameObject.Find("GameManager").GetComponent<gameController>();
         damageCooldown = .2f;
         dodgeCooldown = 1f;
@@ -135,10 +137,11 @@ public class MeowtarController : MonoBehaviour
             health.isDamaged = false;
             damageCooldown = .2f;
         }
-        if (health.health <= 0)
+        if (health.health <= 0 || transform.position.y < -20)
         {
             isDead = true;
             GM.finished = true;
+            Camcontroller.target1 = GameObject.FindGameObjectWithTag(enemy).transform;
         }
     }
     void Attack()
@@ -149,7 +152,7 @@ public class MeowtarController : MonoBehaviour
             Horizontal = 0;
         }
 
-        if (attackCooldown <= 0)
+        if (attackCooldown <= 0 || health.isDamaged)
         {
             isAttacking = false;
             attackCooldown = .3f;
