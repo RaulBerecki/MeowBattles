@@ -8,6 +8,7 @@ TagManager:
   - ground
   - Player1
   - Player2
+  - music
   layers:
   - Default
   - TransparentFX

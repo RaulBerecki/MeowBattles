@@ -65,7 +65,7 @@ public class MeowolasController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!isDead)
+        if (!isDead && !GM.paused)
         {
             HealthLook();
             Attack();
