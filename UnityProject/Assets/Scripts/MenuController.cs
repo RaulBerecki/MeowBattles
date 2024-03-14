@@ -22,7 +22,6 @@ public class MenuController : MonoBehaviour
     }
     public void Play()
     {
-        Debug.Log("Play");
         StartCoroutine("PlayScene");
     }
     public void ExitGame()
@@ -31,7 +30,6 @@ public class MenuController : MonoBehaviour
     }
     public IEnumerator PlayScene()
     {
-        Debug.Log("StartCourotine");
         nextSceneImage.SetActive(true);
         yield return new WaitForSeconds(1.2f);
         Application.LoadLevel("SelectScene");

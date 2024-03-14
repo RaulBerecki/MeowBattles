@@ -2677,9 +2677,6 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 76e57d0d4ff485f4090d0080981c4546, type: 3}
   - {fileID: 8300000, guid: ab372c0e0afd6de488087d00d6771921, type: 3}
   - {fileID: 8300000, guid: 276771be429982d4885a4cb720668d56, type: 3}
-  musicLeft: 0
-  musicList: 
-  musicRemaining: 
 --- !u!4 &1756907612
 Transform:
   m_ObjectHideFlags: 0

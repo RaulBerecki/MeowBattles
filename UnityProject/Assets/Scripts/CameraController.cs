@@ -15,14 +15,14 @@ public class CameraController : MonoBehaviour
         if (distance > 10)
             cam.orthographicSize = distance / 2.5f;
         else
-            cam.orthographicSize = 4;
+            cam.orthographicSize = 7;
     }
 
     // Update is called once per frame
     void Update()
     {
-        distance = Vector3.Distance(target1.position, target2.position);  
-        if (distance > 10 && !GM.finished)
+        distance = Vector3.Distance(target1.position, target2.position);
+        if (distance > 17.5 && !GM.finished)
             cam.orthographicSize = distance / 2.5f;
         if (GM.finished)
         {

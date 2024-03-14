@@ -370,6 +370,7 @@
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEditor.UI.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEngine.UI.ref.dll"
 "Assets/Scripts/ArrowController.cs"
+"Assets/Scripts/BirdController.cs"
 "Assets/Scripts/Body.cs"
 "Assets/Scripts/CameraController.cs"
 "Assets/Scripts/FireballController.cs"
@@ -382,7 +383,9 @@
 "Assets/Scripts/MeowtarController.cs"
 "Assets/Scripts/MeowthurController.cs"
 "Assets/Scripts/MusicManager.cs"
+"Assets/Scripts/RecordingController.cs"
 "Assets/Scripts/SelectMenu.cs"
+"Assets/Scripts/SpawnBirdsController.cs"
 -langversion:9.0
 
 /deterministic

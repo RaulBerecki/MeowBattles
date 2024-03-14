@@ -228,7 +228,7 @@ SpriteRenderer:
   m_SpriteSortPoint: 0
 --- !u!95 &9130790764227430353
 Animator:
-  serializedVersion: 4
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -245,7 +245,8 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!50 &9130790764227430355
 Rigidbody2D:
   serializedVersion: 4
@@ -261,7 +262,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 3
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -281,8 +282,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gnd: {fileID: 9130790765023426939}
   rb: {fileID: 0}
-  jumpForce: 9
-  speed: 5
+  jumpForce: 18
+  speed: 8.5
   statement: 0
   body: {fileID: 9130790764124151493}
   isDodging: 0

@@ -7,8 +7,8 @@ public class MusicManager : MonoBehaviour
     private static MusicManager instance;
     [SerializeField] AudioClip[] musics;
     AudioSource audioSource;
-    public int musicLeft;
-    public int[] musicList,musicRemaining;
+    int musicLeft;
+    int[] musicList,musicRemaining;
     
     // Start is called before the first frame update
     void Start()

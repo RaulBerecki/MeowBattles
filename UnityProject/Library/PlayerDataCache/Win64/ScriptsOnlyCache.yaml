@@ -2,6 +2,7 @@ ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
     - ArrowController
+    - BirdController
     - Body
     - CameraController
     - FireballController
@@ -14,6 +15,7 @@ ScriptsOnlyBuild:
     - MeowthurController
     - MusicManager
     - SelectMenu
+    - SpawnBirdsController
     - gameController
     Unity.2D.Animation.Editor.dll:
     - UnityEditor.U2D.Animation.BoneGizmo
@@ -116,6 +118,103 @@ ScriptsOnlyBuild:
     fullTypeName: gameController
     methodName: ReturnToMenu
   sceneClasses:
+    Assets/Scenes/Map1.unity:
+    - Class: 1
+      Script: {instanceID: 0}
+    - Class: 4
+      Script: {instanceID: 0}
+    - Class: 20
+      Script: {instanceID: 0}
+    - Class: 21
+      Script: {instanceID: 0}
+    - Class: 28
+      Script: {instanceID: 0}
+    - Class: 48
+      Script: {instanceID: 0}
+    - Class: 50
+      Script: {instanceID: 0}
+    - Class: 61
+      Script: {instanceID: 0}
+    - Class: 62
+      Script: {instanceID: 0}
+    - Class: 74
+      Script: {instanceID: 0}
+    - Class: 81
+      Script: {instanceID: 0}
+    - Class: 91
+      Script: {instanceID: 0}
+    - Class: 95
+      Script: {instanceID: 0}
+    - Class: 104
+      Script: {instanceID: 0}
+    - Class: 114
+      Script: {instanceID: 680}
+    - Class: 114
+      Script: {instanceID: 16114}
+    - Class: 114
+      Script: {instanceID: 16182}
+    - Class: 114
+      Script: {instanceID: 16918}
+    - Class: 114
+      Script: {instanceID: 16976}
+    - Class: 114
+      Script: {instanceID: 17018}
+    - Class: 114
+      Script: {instanceID: 17262}
+    - Class: 114
+      Script: {instanceID: 17332}
+    - Class: 114
+      Script: {instanceID: 17584}
+    - Class: 114
+      Script: {instanceID: 17816}
+    - Class: 114
+      Script: {instanceID: 17932}
+    - Class: 114
+      Script: {instanceID: 18522}
+    - Class: 114
+      Script: {instanceID: 18992}
+    - Class: 114
+      Script: {instanceID: 19472}
+    - Class: 114
+      Script: {instanceID: 20310}
+    - Class: 114
+      Script: {instanceID: 20982}
+    - Class: 114
+      Script: {instanceID: 21184}
+    - Class: 114
+      Script: {instanceID: 21192}
+    - Class: 114
+      Script: {instanceID: 21572}
+    - Class: 114
+      Script: {instanceID: 22894}
+    - Class: 114
+      Script: {instanceID: 23346}
+    - Class: 114
+      Script: {instanceID: 23548}
+    - Class: 115
+      Script: {instanceID: 0}
+    - Class: 128
+      Script: {instanceID: 0}
+    - Class: 157
+      Script: {instanceID: 0}
+    - Class: 196
+      Script: {instanceID: 0}
+    - Class: 212
+      Script: {instanceID: 0}
+    - Class: 213
+      Script: {instanceID: 0}
+    - Class: 222
+      Script: {instanceID: 0}
+    - Class: 223
+      Script: {instanceID: 0}
+    - Class: 224
+      Script: {instanceID: 0}
+    - Class: 156049354
+      Script: {instanceID: 0}
+    - Class: 483693784
+      Script: {instanceID: 0}
+    - Class: 1839735485
+      Script: {instanceID: 0}
     Assets/Scenes/Menu.unity:
     - Class: 1
       Script: {instanceID: 0}
@@ -166,37 +265,39 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 17584}
     - Class: 114
-      Script: {instanceID: 17928}
+      Script: {instanceID: 17932}
     - Class: 114
-      Script: {instanceID: 18518}
+      Script: {instanceID: 18522}
     - Class: 114
-      Script: {instanceID: 18988}
+      Script: {instanceID: 18992}
     - Class: 114
-      Script: {instanceID: 19140}
+      Script: {instanceID: 19144}
     - Class: 114
-      Script: {instanceID: 19450}
+      Script: {instanceID: 19454}
     - Class: 114
-      Script: {instanceID: 19468}
+      Script: {instanceID: 19472}
     - Class: 114
-      Script: {instanceID: 20218}
+      Script: {instanceID: 20222}
     - Class: 114
-      Script: {instanceID: 20306}
+      Script: {instanceID: 20310}
     - Class: 114
-      Script: {instanceID: 20976}
+      Script: {instanceID: 20600}
     - Class: 114
-      Script: {instanceID: 20990}
+      Script: {instanceID: 20982}
     - Class: 114
-      Script: {instanceID: 21178}
+      Script: {instanceID: 20996}
     - Class: 114
-      Script: {instanceID: 21564}
+      Script: {instanceID: 21184}
     - Class: 114
-      Script: {instanceID: 22886}
+      Script: {instanceID: 21192}
     - Class: 114
-      Script: {instanceID: 23338}
+      Script: {instanceID: 21572}
     - Class: 114
-      Script: {instanceID: 23540}
+      Script: {instanceID: 22894}
     - Class: 114
-      Script: {instanceID: 25534}
+      Script: {instanceID: 23346}
+    - Class: 114
+      Script: {instanceID: 23548}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -214,99 +315,6 @@ ScriptsOnlyBuild:
     - Class: 223
       Script: {instanceID: 0}
     - Class: 224
-      Script: {instanceID: 0}
-    Assets/Scenes/SampleScene.unity:
-    - Class: 1
-      Script: {instanceID: 0}
-    - Class: 4
-      Script: {instanceID: 0}
-    - Class: 20
-      Script: {instanceID: 0}
-    - Class: 21
-      Script: {instanceID: 0}
-    - Class: 28
-      Script: {instanceID: 0}
-    - Class: 48
-      Script: {instanceID: 0}
-    - Class: 50
-      Script: {instanceID: 0}
-    - Class: 61
-      Script: {instanceID: 0}
-    - Class: 62
-      Script: {instanceID: 0}
-    - Class: 74
-      Script: {instanceID: 0}
-    - Class: 81
-      Script: {instanceID: 0}
-    - Class: 91
-      Script: {instanceID: 0}
-    - Class: 95
-      Script: {instanceID: 0}
-    - Class: 104
-      Script: {instanceID: 0}
-    - Class: 114
-      Script: {instanceID: 680}
-    - Class: 114
-      Script: {instanceID: 16114}
-    - Class: 114
-      Script: {instanceID: 16182}
-    - Class: 114
-      Script: {instanceID: 16918}
-    - Class: 114
-      Script: {instanceID: 16976}
-    - Class: 114
-      Script: {instanceID: 17018}
-    - Class: 114
-      Script: {instanceID: 17262}
-    - Class: 114
-      Script: {instanceID: 17332}
-    - Class: 114
-      Script: {instanceID: 17584}
-    - Class: 114
-      Script: {instanceID: 17928}
-    - Class: 114
-      Script: {instanceID: 18518}
-    - Class: 114
-      Script: {instanceID: 18988}
-    - Class: 114
-      Script: {instanceID: 19468}
-    - Class: 114
-      Script: {instanceID: 20306}
-    - Class: 114
-      Script: {instanceID: 20976}
-    - Class: 114
-      Script: {instanceID: 21178}
-    - Class: 114
-      Script: {instanceID: 21564}
-    - Class: 114
-      Script: {instanceID: 22886}
-    - Class: 114
-      Script: {instanceID: 23338}
-    - Class: 114
-      Script: {instanceID: 23540}
-    - Class: 115
-      Script: {instanceID: 0}
-    - Class: 128
-      Script: {instanceID: 0}
-    - Class: 157
-      Script: {instanceID: 0}
-    - Class: 196
-      Script: {instanceID: 0}
-    - Class: 212
-      Script: {instanceID: 0}
-    - Class: 213
-      Script: {instanceID: 0}
-    - Class: 222
-      Script: {instanceID: 0}
-    - Class: 223
-      Script: {instanceID: 0}
-    - Class: 224
-      Script: {instanceID: 0}
-    - Class: 156049354
-      Script: {instanceID: 0}
-    - Class: 483693784
-      Script: {instanceID: 0}
-    - Class: 1839735485
       Script: {instanceID: 0}
     Assets/Scenes/SelectScene.unity:
     - Class: 1
@@ -338,17 +346,17 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 17584}
     - Class: 114
-      Script: {instanceID: 19946}
+      Script: {instanceID: 19950}
     - Class: 114
-      Script: {instanceID: 20306}
+      Script: {instanceID: 20310}
     - Class: 114
-      Script: {instanceID: 20976}
+      Script: {instanceID: 20982}
     - Class: 114
-      Script: {instanceID: 21178}
+      Script: {instanceID: 21184}
     - Class: 114
-      Script: {instanceID: 21564}
+      Script: {instanceID: 21572}
     - Class: 114
-      Script: {instanceID: 33492}
+      Script: {instanceID: 32104}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -630,6 +638,18 @@ ScriptsOnlyBuild:
     assemblyName: Unity.VisualScripting.Core.dll
     namespaceName: Unity.VisualScripting
     className: UnityOnDropdownValueChangedMessageListener
+  - hash:
+      serializedVersion: 2
+      Hash: 8d8891388a3555e0e94a82fc2c4257e1
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: SpawnBirdsController
+  - hash:
+      serializedVersion: 2
+      Hash: 67789a9090a3ac628dd282edbc9eb922
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: RecordingController
   - hash:
       serializedVersion: 2
       Hash: 4a3351e209ecf0eff6ab268e49d7f341
@@ -1010,6 +1030,12 @@ ScriptsOnlyBuild:
     className: GroupTrack
   - hash:
       serializedVersion: 2
+      Hash: 214352e347951a91c1c45b548468f19f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: MusicManager
+  - hash:
+      serializedVersion: 2
       Hash: 9e29667a89e02241a5acac926156e2f2
     assemblyName: Unity.VisualScripting.Core.dll
     namespaceName: Unity.VisualScripting
@@ -1056,6 +1082,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
     className: TextMeshProUGUI
+  - hash:
+      serializedVersion: 2
+      Hash: 6d3eb60be0c234b92e59e2616664a627
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: BirdController
   - hash:
       serializedVersion: 2
       Hash: ab83fa9209b73d94dbec301001db7690
@@ -1368,15 +1400,9 @@ ScriptsOnlyBuild:
     assemblyName: Unity.VisualScripting.Core.dll
     namespaceName: Unity.VisualScripting
     className: UnityOnSliderValueChangedMessageListener
-  - hash:
-      serializedVersion: 2
-      Hash: 2aa1e44876c2418c13af4bc246a51ffc
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: MusicManager
   platform: 19
   scenePathNames:
   - Assets/Scenes/Menu.unity
   - Assets/Scenes/SelectScene.unity
-  - Assets/Scenes/SampleScene.unity
-  playerPath: D:/UnityProjects/MeowBattles/UnityProject/BuildTest/MeowBattle.exe
+  - Assets/Scenes/Map1.unity
+  playerPath: D:/UnityProjects/MeowBattles/UnityProject/MeowBattle_1_06/MeowBattle.exe
