@@ -85,6 +85,6 @@ public class SelectMenu : MonoBehaviour
         yield return new WaitForSeconds(1.2f);
         PlayerPrefs.SetInt("Player1", ply1);
         PlayerPrefs.SetInt("Player2", ply2);
-        Application.LoadLevel("Map1");
+        Application.LoadLevel("Tutorial");
     }
 }

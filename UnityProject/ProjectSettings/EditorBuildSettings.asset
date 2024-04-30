@@ -29,7 +29,10 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/RecordingScene.unity
     guid: 620f49427705f2f4db95b2fe28deaf3e
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Map1.unity
     guid: 86ff1950d4420aa43be77cd4e9e26f9e
+  - enabled: 1
+    path: Assets/Scenes/Tutorial.unity
+    guid: f72e8f752bf65034f8a9df0e3b8f8460
   m_configObjects: {}
